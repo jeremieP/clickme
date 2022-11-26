@@ -15,12 +15,16 @@ function App() {
 
   const undoHandler = (e) => {
     setClicksHistory([...clickHistory, clicks.pop()])
-    setClicks([...clicks])
+    // Avoid it because rerender already triggered by clickHistory update
+    // But modifying directly state value is not really recommended
+    // setClicks([...clicks])
   }
 
   const redoHandler = (e) => {
     setClicks([...clicks, clickHistory.pop()])
-    setClicksHistory([...clickHistory])
+    // Avoid it because rerender already triggered by clicks update
+    // But modifying directly state value is not really recommended
+    // setClicksHistory([...clickHistory])
   }
 
   return (
